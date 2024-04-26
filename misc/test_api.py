@@ -1,6 +1,10 @@
 import base64
 import requests
+import yaml
 
+with open('misc/api_key.yaml', 'r') as file:
+    data = yaml.safe_load(file)
+api_key=data['api_key']
 
 def encode_image(image_path):
   with open(image_path, "rb") as image_file:

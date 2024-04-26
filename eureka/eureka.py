@@ -5,9 +5,12 @@ import logging
 import matplotlib.pyplot as plt
 import os
 from openai import OpenAI
+import yaml
 
+with open('misc/api_key.yaml', 'r') as file:
+    data = yaml.safe_load(file)
 
-client = OpenAI(api_key=api_key)
+client = OpenAI(api_key=data['api_key'])
 import re
 import subprocess
 from pathlib import Path
