@@ -6,7 +6,9 @@ import matplotlib.pyplot as plt
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key = "sk-proj-3cR0z462LYkWrPSPF3c4T3BlbkFJ2pUzy0usTv8xwNv6fE1a"
+
+client = OpenAI(api_key=api_key)
 import re
 import subprocess
 from pathlib import Path
@@ -37,13 +39,13 @@ def main(cfg):
     logging.info("Task description: " + task_description)
 
     env_name = cfg.env.env_name.lower()
-    env_parent = 'isaac' if f'{env_name}.py' in os.listdir(f'{EUREKA_ROOT_DIR}/envs/isaac') else 'dexterity'
+    env_parent = 'isaac' if f'{env_name}.py' in os.listdir(f'{EUREKA_ROOT_DIR}/envs/isaac') else 'bidex'
     task_file = f'{EUREKA_ROOT_DIR}/envs/{env_parent}/{env_name}.py'
     task_obs_file = f'{EUREKA_ROOT_DIR}/envs/{env_parent}/{env_name}_obs.py'
     shutil.copy(task_obs_file, f"env_init_obs.py")
-    task_code_string  = file_to_string(task_file)
-    task_obs_code_string  = file_to_string(task_obs_file)
-    output_file = f"{ISAAC_ROOT_DIR}/tasks/{env_name}{suffix.lower()}.py"
+    task_code_string = file_to_string(task_file)
+    task_obs_code_string = file_to_string(task_obs_file)
+    output_file = f"{ISAAC_ROOT_DIR}/tasks/{env_name}_{suffix.lower()}.py"
 
     # Loading all text prompts
     prompt_dir = f'{EUREKA_ROOT_DIR}/utils/prompts'

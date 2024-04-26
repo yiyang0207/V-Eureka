@@ -1111,3 +1111,4 @@ def compute_success(
     cons_successes = torch.where(resets > 0, successes * resets, consecutive_successes).mean()
 
     return reward, resets, goal_resets, progress_buf, successes, cons_successes
+
