@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import os
 from openai import OpenAI
 
-api_key = "sk-proj-3cR0z462LYkWrPSPF3c4T3BlbkFJ2pUzy0usTv8xwNv6fE1a"
+# api_key = "sk-proj-3cR0z462LYkWrPSPF3c4T3BlbkFJ2pUzy0usTv8xwNv6fE1a"
 
 client = OpenAI(api_key=api_key)
 import re
